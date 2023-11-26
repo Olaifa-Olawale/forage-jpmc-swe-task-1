@@ -1,0 +1,53 @@
+From 0072d3d8e575e53196c1c522d511c4343891b5ad Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=E2=80=9COlaifa-Olawale=E2=80=9D?=
+ <“olawale.favour10@gmail.com”>
+Date: Sun, 26 Nov 2023 01:09:23 -0600
+Subject: [PATCH] End of Task 1
+
+---
+ __pycache__/client3.cpython-311.pyc | Bin 1806 -> 1930 bytes
+ client3.py                          |   4 +++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/__pycache__/client3.cpython-311.pyc b/__pycache__/client3.cpython-311.pyc
+index a5c22f818fd37a79d9cdf2eca2f5054ac02444fe..2a2488387d24a50229abb97a9687a9b1b5f8d753 100644
+GIT binary patch
+delta 516
+zcmeC<>*D8K&dbZi00g4%l2Rv5<dtN+Hc{P%@zlf=O~&mL`*zf4GDHcb3c4`F>PHDP
+zF{HAk3NK@1U|0>r5D>${zz`)8B^o6bC7vptDwHZ>1C#)&lt^Ju6`9SL!jUQpBso*X
+zfFxI{IFRI?%ZX|RBSVh?SO*V~WKR`J;gy6L&(8ql^1-<blh-jSb8kyw3}ygfP5#Yy
+z7~Pq4nSjcff%vl=keJTE$xy?X!k7&bWhi1wVG3rb0g6;{GcW+PFi*B(QDG|rN%~Dr
+zX3^CW0kX7!xL6iQG%!41vAMy)Kf$nzr-SDP2VV!<4Q`<c=AHHzSfnN|XK~`W#q8+h
+ze2dw|)lE}!@@p0|Mv=)%tUheF*b0g=lPBk}Dl-aBp1>->r42L<6iUT;lQ*%t^RqHa
+ze_((ULX$bz6u7upof$tcfXK-PZ0=@)!a&PJfy$UUQ-I<ivcvU;q3s5l9jO-$U9K3q
+zT;$Q~aGhW|BXfo54H?A_w+W`5zLV#(Ias=_FkRxi!EA@>7Tb%`j#s1|FY-BF<Z!ye
+Z;dB9vK1edKNL^r-{J?^+vxpz)Ish9$chdj>
+
+delta 409
+zcmeC;@8jcL&dbZi00aw#6H>(|@=7vpn5b^UxP4-ZCgYNceLLz?1zi|owW5TW7*g3%
+zg_bcgFsue*2#8@}V2Bcq5{VLx5(CPMr?96A&t^>FNEHE+oT;Kfk}FjVNOI5RMAga2
+z(4!63!2=}OQ^iunmN5ZM24V=PVq;(c>zMqSk%xP63S%$>2y60gW@2(@5(l|}8Hhh~
+z0Ey`goDfN-$z?1mtS>>5lNYe)ii-jnT0mS3@?ZnQ0~VVb+&mqIlfSb#F=<Lnc4akV
+z6rEhd>NEKQtD>?HP)!j(h~Nbhzc_4i^HWN5QtgT~fn1Q0#UYbL*xdP<8F@c2zzM#|
+zS!@a%9IVD47=Xm&DQxcCqS7B2m^f1yf#l@ZY;u!@*zNUQSD0RuHoPKjc#+TWB8Slx
+Y4x<ZT^g)z?Md|{x<Odd*5nv|(07Ohyx&QzG
+
+diff --git a/client3.py b/client3.py
+index 4829ffb..1984a39 100644
+--- a/client3.py
++++ b/client3.py
+@@ -54,8 +54,10 @@ if __name__ == "__main__":
+         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
+ 
+         """ ----------- Update to get the ratio --------------- """
++        prices = {}
+         for quote in quotes:
+             stock, bid_price, ask_price, price = getDataPoint(quote)
++            prices[stock] = price
+             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
+ 
+-        print("Ratio %s" % getRatio(price, price))
++        print("Ratio %s" % getRatio(prices["ABC"], prices["DEF"]))
+-- 
+2.43.0
+
